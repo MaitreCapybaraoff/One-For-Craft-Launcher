@@ -64,9 +64,9 @@ class Index {
             config: {
                 generateUpdatesFilesForAllChannels: false,
                 appId: preductname,
-                productName: preductname,
-                copyright: 'Copyright © 2020-2025 Riptiaz',
-                artifactName: "${productName}-${os}-${arch}.${ext}",
+                productName: 'One For Craft',
+                copyright: 'Copyright © 2025-2026 One For Craft',
+                artifactName: "One-For-Craft-Launcher-${os}-${arch}.${ext}",
                 extraMetadata: { main: 'app/app.js' },
                 files: ["app/**/*", "package.json", "LICENSE.md"],
                 directories: { "output": "dist" },
@@ -84,8 +84,8 @@ class Index {
                     }]
                 },
                 nsis: {
-                    oneClick: true,
-                    allowToChangeInstallationDirectory: false,
+                    oneClick: false,
+                    allowToChangeInstallationDirectory: true,
                     createDesktopShortcut: true,
                     runAfterFinish: true
                 },
