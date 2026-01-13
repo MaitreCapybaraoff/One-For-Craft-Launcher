@@ -104,7 +104,7 @@ class Splash {
             let latest;
     
             if (os.platform() == 'darwin') latest = this.getLatestReleaseForOS('mac', '.dmg', latestRelease);
-            else if (os == 'linux') latest = this.getLatestReleaseForOS('linux', '.deb', latestRelease);
+            else if (os.platform() == 'linux') latest = this.getLatestReleaseForOS('linux', '.deb', latestRelease);
     
     
             this.setStatus(`Mise à jour disponible !<br><div class="download-update">Télécharger</div>`);
