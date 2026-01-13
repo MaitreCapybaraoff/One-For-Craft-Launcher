@@ -4,7 +4,7 @@
     "version": "1.0.1",
     "description": "One For Craft modded server launcher",
     "main": "src/app.js",
-    "author": "One For Craft, Riptiaz/Boulldogo/Vexato/Luuxis",
+    "author": "One For Craft (cyber.nova.off@gmail.com), Riptiaz/Boulldogo/Vexato/Luuxis",
     "env": "panel",
     "settings": "https://launcher-centralcorp.craftserv.fr",
     "scripts": {
