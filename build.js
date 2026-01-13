@@ -107,10 +107,6 @@ class Index {
                     target: [{
                         target: "deb",
                         arch: "x64"
-                    },
-                    {
-                        target: "AppImage",
-                        arch: "x64"
                     }]
                 }
             }
