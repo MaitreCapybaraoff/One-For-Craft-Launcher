@@ -28,6 +28,10 @@ else app.whenReady().then(() => {
     UpdateWindow.createWindow()
 });
 
+ipcMain.on('main-window-toggle-fullscreen', () => {
+    const w = MainWindow.getWindow();
+    w.setFullScreen(!w.isFullScreen());
+});
 ipcMain.on('update-window-close', () => UpdateWindow.destroyWindow())
 ipcMain.on('update-window-dev-tools', () => UpdateWindow.getWindow().webContents.openDevTools())
 ipcMain.on('main-window-open', () => MainWindow.createWindow())
@@ -47,6 +51,9 @@ ipcMain.on('main-window-maximize', () => {
 
 ipcMain.on('main-window-hide', () => MainWindow.getWindow().hide())
 ipcMain.on('main-window-show', () => MainWindow.getWindow().show())
+ipcMain.on('main-window-quit', () => {
+    app.quit();
+})
 
 ipcMain.handle('is-dark-theme', (_, theme) => {
     if (theme === 'dark') return true

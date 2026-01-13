@@ -24,7 +24,7 @@ class Launcher {
     async init() {
         this.initLog();
         console.log("Initializing Launcher...");
-        if (process.platform === "win32") this.initFrame();
+        if (process.platform === "win32" || process.platform === "linux" || process.platform === 'darwin') this.initFrame();
         this.config = await config.GetConfig();
         this.news = await config.GetNews();
         this.database = await new database().init();
@@ -75,15 +75,29 @@ class Launcher {
 
         let maximized = false;
         const maximize = document.querySelector("#maximize");
-        maximize.addEventListener("click", () => {
-            ipcRenderer.send("main-window-maximize");
-            maximized = !maximized;
-            maximize.classList.toggle("icon-maximize");
-            maximize.classList.toggle("icon-restore-down");
+        const isLinux = process.platform === 'linux';
+        const isMac = process.platform === 'darwin';
+        const isWin = process.platform === 'win32';
+        maximize.addEventListener("click", (e) => {
+            if (isLinux || isMac) {
+                ipcRenderer.send("main-window-toggle-fullscreen");
+                maximize.classList.toggle("icon-maximize");
+                maximize.classList.toggle("icon-restore-down");
+            } else if (isWin) {
+                ipcRenderer.send("main-window-maximize");
+                maximized = !maximized;
+                maximize.classList.toggle("icon-maximize");
+                maximize.classList.toggle("icon-restore-down");
+            } else {
+                // fallback
+                ipcRenderer.send("main-window-maximize");
+            }
         });
 
-        document.querySelector("#close").addEventListener("click", () => {
-            ipcRenderer.send("main-window-close");
+        document.querySelector("#close").addEventListener("click", (e) => {
+            // shift+click to quit completely
+            if (e.shiftKey) ipcRenderer.send("main-window-quit");
+            else ipcRenderer.send("main-window-close");
         });
     }
 

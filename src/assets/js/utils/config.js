@@ -43,7 +43,7 @@ class Config {
                     title: "Aucun article disponible",
                     content: "Aucun article n'a été trouvé.",
                     author: "",
-                    publish_date: "2024"
+                    publish_date: "2026"
                 }];
             }
 

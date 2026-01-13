@@ -1,12 +1,12 @@
 {
     "name": "one-for-craft-launcher",
     "preductname": "One For Craft Launcher",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "One For Craft modded server launcher",
     "main": "src/app.js",
     "author": "One For Craft, Riptiaz/Boulldogo/Vexato/Luuxis",
     "env": "panel",
-    "settings": "https://one-for-craft-centralcorp.craftserv.fr",
+    "settings": "https://launcher-centralcorp.craftserv.fr",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --obf=true --build=platform",
